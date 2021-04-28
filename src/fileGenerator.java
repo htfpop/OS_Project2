@@ -2,16 +2,20 @@ import java.io.*;
 import java.util.Random;
 public class fileGenerator {
     public static void main(String[] args) throws IOException {
-        String dataSetDir = ".\\data\\";
-
+        String dataSetDir = ".\\data\\ReferenceString.txt";
+        FileWriter fw = new FileWriter(dataSetDir);
+        PrintWriter pw = new PrintWriter(fw);
         for(int i = 0; i < 50; i++){
             String refString = getRefString();
+            pw.println(refString);
 
-            genFile(refString, dataSetDir,3, i+1);
-            genFile(refString, dataSetDir,4, i+1);
-            genFile(refString, dataSetDir,5, i+1);
-            genFile(refString, dataSetDir,6, i+1);
+            //genFile(refString, dataSetDir,3, i+1);
+            //genFile(refString, dataSetDir,4, i+1);
+            //(refString, dataSetDir,5, i+1);
+            //genFile(refString, dataSetDir,6, i+1);
+
         }
+        pw.close();
     }
 
     public static void genFile(String refString, String dir, int page, int currentFileNum) throws IOException {
@@ -29,7 +33,7 @@ public class fileGenerator {
         String refString = "";
 
         for(int i = 0; i < 30; i++){
-            refString += rd.nextInt(10);
+            refString += rd.nextInt(8);
         }
         return refString;
     }

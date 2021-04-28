@@ -1,4 +1,0 @@
-NumberOfPageFrame Value:
-3
-Reference String:
-52283591099606693882585810761276

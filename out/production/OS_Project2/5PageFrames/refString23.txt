@@ -1,4 +1,0 @@
-NumberOfPageFrame Value:
-5
-Reference String:
-59247951186855861001028575044077
