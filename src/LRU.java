@@ -1,35 +1,52 @@
+/**
+ * Programmer: Christopher K. Leung
+ * Course: CS 4310 - Operating Systems
+ * Program: LRU.java
+ * Description: This program will calculate the number of page faults for a given page frame size, and reference string
+ *              using the least recently used (LRU) algorithm
+ */
+
 import java.util.ArrayList;
 import java.util.Stack;
 
 public class LRU {
     public static int handleLRU(int pfSize, String refString){
+        //Create stack for page that was least recently used, ArrayList for keeping track of page frames
         Stack<Character>lastSeen = new Stack<>();
-        ArrayList<Character> lru = new ArrayList<>(pfSize);
-        int arrListHead = 0;
+        ArrayList<Character> pageFrame = new ArrayList<>(pfSize);
         int pageFaults = 0;
 
         for(int i = 0; i < refString.length(); i++){
-            char currElement = refString.charAt(i);
+            //obtain current page
+            char currPage = refString.charAt(i);
 
-            if(lru.contains(currElement)){
-                int stackLocation = lastSeen.indexOf(currElement);
+            //if our page frame has this page, remove from stack and push same page back onto stack (mark as "new")
+            if(pageFrame.contains(currPage)){
+                int stackLocation = lastSeen.indexOf(currPage);
                 lastSeen.remove(stackLocation);
-                lastSeen.push(currElement);
-                FIFO.printFIFO(lru, pfSize, false);
+                lastSeen.push(currPage);
+                arrListPrinter.printArrList(pageFrame, pfSize, false);
             }
+            //if page frame doesn't have this page
             else{
-                if(lru.size() == pfSize){
+                //if page frame is full
+                if(pageFrame.size() == pfSize){
+                    //our least used page is at the bottom of the stack, find the page in our page frame and mark it as the victim
                     char leastUsed = lastSeen.remove(0);
-                    int location = lru.indexOf(leastUsed);
-                    lastSeen.push(currElement);
-                    lru.set(location, currElement);
+                    int location = pageFrame.indexOf(leastUsed);
+
+                    //push our new page onto the stack and replace the victim with current page
+                    lastSeen.push(currPage);
+                    pageFrame.set(location, currPage);
                 }
+                //if page frame is not full
                 else{
-                    lastSeen.push(currElement);
-                    lru.add(currElement);
+                    lastSeen.push(currPage);
+                    pageFrame.add(currPage);
                 }
+                //update page faults
                 pageFaults++;
-                FIFO.printFIFO(lru, pfSize, true);
+                arrListPrinter.printArrList(pageFrame, pfSize, true);
             }
         }
         return pageFaults;
