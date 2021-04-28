@@ -8,14 +8,15 @@ public class test {
         Scanner fs = new Scanner(f);
 
         //String refString = fs.nextLine();
-        String refString = "135732345051740";
+        String refString = "022467551356344120536760051101";
 
         for(int i = 0; i < refString.length(); i++){
             System.out.print(refString.charAt(i) + " ");
         }
         System.out.println();
-        System.out.println(LRU.handleLRU(5, refString));
-        //int pf = FIFO.handleFIFO(5,refString);
+        System.out.println(FIFO.handleFIFO(6,refString));
+        System.out.println(LRU.handleLRU(6, refString));
+
         //System.out.println(pf);
 //        int counter = 0;
 //        while(fs.hasNext()){
