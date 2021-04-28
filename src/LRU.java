@@ -26,7 +26,7 @@ public class LRU {
                 }
                 else{
                     lastSeen.push(currElement);
-                    lru.add(arrListHead, currElement);
+                    lru.add(currElement);
                 }
                 pageFaults++;
                 FIFO.printFIFO(lru, pfSize, true);

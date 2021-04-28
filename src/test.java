@@ -14,9 +14,9 @@ public class test {
             System.out.print(refString.charAt(i) + " ");
         }
         System.out.println();
-        //System.out.println(LRU.handleLRU(3, refString));
-        int pf = FIFO.handleFIFO(5,refString);
-        System.out.println(pf);
+        System.out.println(LRU.handleLRU(5, refString));
+        //int pf = FIFO.handleFIFO(5,refString);
+        //System.out.println(pf);
 //        int counter = 0;
 //        while(fs.hasNext()){
 //            counter++;
