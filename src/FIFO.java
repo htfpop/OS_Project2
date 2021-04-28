@@ -9,8 +9,10 @@ public class FIFO {
         for(int i = 0; i < refString.length(); i++){
             char currElement = refString.charAt(currRefStringElement++);
 
-            if(fifo.contains(currElement))
+            if(fifo.contains(currElement)) {
+                printFIFO(fifo, pfSize, false);
                 continue;
+            }
             else{
                 if(fifo.size() < pfSize){
                     fifo.add(currArrListIndex++, currElement);
@@ -20,9 +22,19 @@ public class FIFO {
                 }
                 pageFaults++;
                 currArrListIndex %= pfSize;
+                printFIFO(fifo, pfSize, true);
             }
         }
         return pageFaults;
+    }
 
+    public static void printFIFO(ArrayList<Character> arrList, int pfSize,  boolean pf){
+        char c;
+        for(int i = 0; i < pfSize; i++){
+            try{ c = arrList.get(i); } catch(IndexOutOfBoundsException e){ c = ' '; }
+            System.out.printf("%c | ", c);
+        }
+        if(pf){ System.out.printf("X"); }
+        System.out.println();
     }
 }
