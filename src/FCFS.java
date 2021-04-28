@@ -1,14 +1,14 @@
 /**
  * Programmer: Christopher K. Leung
  * Course: CS 4310 - Operating Systems
- * Program: LRU.java
+ * Program: FCFS.java
  * Description: This program will calculate the number of page faults for a given page frame size, and reference string
  *              using the First Come First Served (FCFS) algorithm
  */
 import java.util.ArrayList;
 
-public class FIFO {
-    public static int handleFIFO(int pfSize, String refString){
+public class FCFS {
+    public static int handleFCFS(int pfSize, String refString){
 
         //check if data passed in is initialized
         if(!(pfSize > 0 && refString.length() > 0)){

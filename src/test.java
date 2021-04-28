@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class test {
@@ -8,14 +7,14 @@ public class test {
         Scanner fs = new Scanner(f);
 
         //String refString = fs.nextLine();
-        String refString = "022467551356344120536760051101";
+        String refString = "035732345651746";
 
         for(int i = 0; i < refString.length(); i++){
             System.out.print(refString.charAt(i) + " ");
         }
         System.out.println();
-        System.out.println(FIFO.handleFIFO(6,refString));
-        System.out.println(LRU.handleLRU(6, refString));
+        System.out.println(FCFS.handleFCFS(5,refString));
+        System.out.println(LRU.handleLRU(5, refString));
 
         //System.out.println(pf);
 //        int counter = 0;
