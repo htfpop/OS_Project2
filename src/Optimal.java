@@ -13,9 +13,13 @@ public class Optimal {
         ArrayList<Character> pageFrame = new ArrayList<>(pfSize);
         int pageFaults = 0;
 
+        System.out.printf("Optimal algorithm with page frame size: %d frames\n",pfSize);
+        System.out.println("------------------------------------------------");
+
         for(int i = 0; i < refString.length(); i++){
             //obtain our current page in our reference string
             char c = refString.charAt(i);
+            System.out.printf("Page Requested: %c   ", c);
 
             //if our page frame has this page then continue with no page fault
             if(pageFrame.contains(c)){

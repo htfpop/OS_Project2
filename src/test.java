@@ -9,13 +9,16 @@ public class test {
         //String refString = fs.nextLine();
         String refString = "615534616624114475127350113050";
 
+        System.out.print("Reference String: ");
         for(int i = 0; i < refString.length(); i++){
             System.out.print(refString.charAt(i) + " ");
         }
         System.out.println();
-        //System.out.println(FCFS.handleFCFS(5,refString));
-        //System.out.println(LRU.handleLRU(5, refString));
-        System.out.println(Optimal.handleOptimal(6, refString));
+        //System.out.printf("Total Page Faults: %d\r\n", FIFO.handleFIFO(6,refString));
+        //System.out.println();
+        System.out.printf("Total Page Faults: %d\r\n", LRU.handleLRU(5, refString));
+        //System.out.println();
+        //System.out.printf("Total Page Faults: %d\r\n", Optimal.handleOptimal(6, refString));
 
         //System.out.println(pf);
 //        int counter = 0;

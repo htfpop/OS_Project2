@@ -16,9 +16,13 @@ public class LRU {
         ArrayList<Character> pageFrame = new ArrayList<>(pfSize);
         int pageFaults = 0;
 
+        System.out.printf("LRU algorithm with page frame size: %d frames\n",pfSize);
+        System.out.println("--------------------------------------------");
+
         for(int i = 0; i < refString.length(); i++){
             //obtain current page
             char currPage = refString.charAt(i);
+            System.out.printf("Page Requested: %c   ",currPage);
 
             //if our page frame has this page, remove from stack and push same page back onto stack (mark as "new")
             if(pageFrame.contains(currPage)){
